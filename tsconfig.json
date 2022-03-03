@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": ".",
+        "outDir": "dist",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "target": "es2019",
+        "jsx": "react-jsx",
+        "sourceMap": true,
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "allowJs": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "forceConsistentCasingInFileNames": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true
+    },
+    "exclude": [
+        "node_modules/",
+        "dist/",
+        "webpack.config.js"
+    ]
+}

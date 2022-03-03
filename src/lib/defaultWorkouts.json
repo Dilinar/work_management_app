@@ -1,0 +1,30 @@
+[
+    {
+        "text":"No workout",
+        "id":"Monday"
+    },
+    {
+        "text":"No workout",
+        "id":"Tuesday"
+    },
+    {
+        "text":"No workout",
+        "id":"Wednesday"
+    },
+    {
+        "text":"No workout",
+        "id":"Thursday"
+    },
+    {
+        "text":"No workout",
+        "id":"Friday"
+    },
+    {
+        "text":"No workout",
+        "id":"Saturday"
+    },
+    {
+        "text":"No workout",
+        "id":"Sunday"
+    }
+]
