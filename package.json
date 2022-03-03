@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An app to manage your time and tasks durring work. ",
   "main": "index.js",
+  "homepage": "https://dilinar.github.io/work_management_app/",
   "scripts": {
     "build": "webpack",
     "dev": "webpack server --progress",
