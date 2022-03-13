@@ -181,10 +181,22 @@ export function App() {
                 </nav>
                 <section className={classes.mainComponent}>
                     <Switch>
-                        <Route path='/' exact component={HomePage} />
+                        {/* <Route path='/' exact component={HomePage} />
                         <Route path='/todo' component={AddTask} />
                         <Route path='/workout' component={WorkoutCalender} />
-                        <Route component={ErrorPage}  />
+                        <Route component={ErrorPage}  /> */}
+                        <Route exact path='/'>
+                            <HomePage /> 
+                        </Route>
+                        <Route path='/todo'>
+                            <AddTask />
+                        </Route>
+                        <Route path='/workout'>
+                            <WorkoutCalender />
+                        </Route>
+                        <Route>
+                            <ErrorPage />
+                        </Route>
                     </Switch>
                 </section> 
                 <section className={classes.timeDisplays}>
