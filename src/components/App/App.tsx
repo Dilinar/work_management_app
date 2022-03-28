@@ -113,8 +113,8 @@ interface LinkRouterProps extends LinkProps {
 }
 
 const breadcrumbNameMap: { [key: string]: string } = {
-    'todo': 'Todo List',
-    'workout': 'Workout Calender',
+    'work_management_app/todo': 'Todo List',
+    'work_management_app /workout': 'Workout Calender',
 };
 
 const LinkRouter = (props: LinkRouterProps) => <Link {...props} component={RouterLink} />;
@@ -158,7 +158,7 @@ export function App() {
                 <nav>
                     <ul className={classes.navList}>
                         <li>
-                            <NavLink to='todo'>
+                            <NavLink to='work_management_app/todo'>
                                 <Button className={classes.button}
                                     variant='outlined' 
                                     color='primary'
@@ -168,7 +168,7 @@ export function App() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='workout'>
+                            <NavLink to='work_management_app/workout'>
                                 <Button className={classes.button}
                                     variant='outlined' 
                                     color='primary'
@@ -181,9 +181,9 @@ export function App() {
                 </nav>
                 <section className={classes.mainComponent}>
                     <Switch>
-                        <Route path='home' exact component={HomePage} />
-                        <Route path='todo' component={AddTask} />
-                        <Route path='workout' component={WorkoutCalender} />
+                        <Route path='work_management_app/home' exact component={HomePage} />
+                        <Route path='work_management_app/todo' component={AddTask} />
+                        <Route path='work_management_app/workout' component={WorkoutCalender} />
                         <Route component={ErrorPage}  />
                     </Switch>
                 </section> 
