@@ -7,7 +7,7 @@ const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
     entry: './src/index.tsx',
-    mode: 'development',
+    mode: 'production',
     output: {
         path: path.resolve(__dirname, './docs'),
         filename: 'index.js',
