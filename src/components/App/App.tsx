@@ -181,7 +181,7 @@ export function App() {
                 </nav>
                 <section className={classes.mainComponent}>
                     <Switch>
-                        <Route path='/work_management_app/home' exact component={HomePage} />
+                        <Route path='/work_management_app' exact component={HomePage} />
                         <Route path='/work_management_app/todo' component={AddTask} />
                         <Route path='/work_management_app/workout' component={WorkoutCalender} />
                         <Route component={ErrorPage}  />
