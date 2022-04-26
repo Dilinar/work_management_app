@@ -113,7 +113,6 @@ interface LinkRouterProps extends LinkProps {
 }
 
 const breadcrumbNameMap: { [key: string]: string } = {
-    '/work_management_app': 'HomePage',
     '/work_management_app/todo': 'Todo List',
     '/work_management_app/workout': 'Workout Calender',
 };
@@ -133,7 +132,7 @@ export function App() {
                     return (
                         <div className={classes.breadcrumbs}>
                             <Breadcrumbs>
-                                <LinkRouter color='inherit' to='/'>
+                                <LinkRouter color='inherit' to='/work_management_app'>
                                 Home
                                 </LinkRouter>
                                 {pathnames.map((value, index) => {
