@@ -113,8 +113,8 @@ interface LinkRouterProps extends LinkProps {
 }
 
 const breadcrumbNameMap: { [key: string]: string } = {
-    '/work_management_app/todo': 'Todo List',
-    '/work_management_app/workout': 'Workout Calender',
+    '//todo': 'Todo List',
+    '/workout': 'Workout Calender',
 };
 
 const LinkRouter = (props: LinkRouterProps) => <Link {...props} component={RouterLink} />;
