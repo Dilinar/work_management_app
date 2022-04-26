@@ -124,7 +124,7 @@ export function App() {
     const classes = useStyles();
  
     return (
-        <Router>
+        <Router basename='/work_management_app'>
             <Route>
                 {({ location }) => {
                     const pathnames = location.pathname.split('/').filter((x) => x);
@@ -132,7 +132,7 @@ export function App() {
                     return (
                         <div className={classes.breadcrumbs}>
                             <Breadcrumbs>
-                                <LinkRouter color='inherit' to='/work_management_app'>
+                                <LinkRouter color='inherit' to='/'>
                                 Home
                                 </LinkRouter>
                                 {pathnames.map((value, index) => {
@@ -158,7 +158,7 @@ export function App() {
                 <nav>
                     <ul className={classes.navList}>
                         <li>
-                            <NavLink to='/work_management_app/todo'>
+                            <NavLink to='/todo'>
                                 <Button className={classes.button}
                                     variant='outlined' 
                                     color='primary'
@@ -168,7 +168,7 @@ export function App() {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/work_management_app/workout'>
+                            <NavLink to='/workout'>
                                 <Button className={classes.button}
                                     variant='outlined' 
                                     color='primary'
@@ -181,9 +181,9 @@ export function App() {
                 </nav>
                 <section className={classes.mainComponent}>
                     <Switch>
-                        <Route path='/work_management_app' exact component={HomePage} />
-                        <Route path='/work_management_app/todo' component={AddTask} />
-                        <Route path='/work_management_app/workout' component={WorkoutCalender} />
+                        <Route path='/' exact component={HomePage} />
+                        <Route path='/todo' component={AddTask} />
+                        <Route path='/workout' component={WorkoutCalender} />
                         <Route component={ErrorPage}  />
                     </Switch>
                 </section> 
