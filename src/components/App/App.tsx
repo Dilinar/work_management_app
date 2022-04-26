@@ -113,6 +113,7 @@ interface LinkRouterProps extends LinkProps {
 }
 
 const breadcrumbNameMap: { [key: string]: string } = {
+    '/work_management_app': 'HomePage',
     '/work_management_app/todo': 'Todo List',
     '/work_management_app/workout': 'Workout Calender',
 };
