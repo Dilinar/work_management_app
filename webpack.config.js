@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './docs'),
         filename: 'index.js',
-        publicPath: '/'
+        publicPath: '/docs/'
     },
     resolve: {
         extensions: [ '.js', '.ts', '.tsx' ],
@@ -19,7 +19,9 @@ module.exports = {
     },
     devServer: {
         port: 8080,
-        historyApiFallback: true,
+        historyApiFallback: {
+            rewrites: [ { from: /\//, to: '/404.html' } ],
+        },
     },
     module: {
         rules: [
