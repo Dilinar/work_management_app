@@ -1,5 +1,7 @@
 # The Work Management App
 
+Link to project: https://dilinar.github.io/work_management_app/
+
 This is one of the first projects I have created back in the day when learning vanilla JavaScript.
 I've always liked it because it contains many useful tools in one. So I've decided to rewrite it in React, with the use of Redux and Material UI, all written in Typescript. 
 
