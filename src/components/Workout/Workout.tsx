@@ -28,6 +28,7 @@ const useStyles = makeStyles(() => ({
         padding: '5px',
         borderRadius: '10px',
         margin: '0.3rem',
+        backgroundColor: '#000000',
     },
     dayHeader: {
         fontSize: '1.3rem',

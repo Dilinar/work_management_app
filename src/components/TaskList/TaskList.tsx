@@ -1,15 +1,24 @@
 /* Libraries */
-import { ReduxState } from '../../types/Redux';
+import { useMemo } from 'react';
+import { 
+    Sortable,
+    ReactSortable
+} from 'react-sortablejs';
 import { 
     useSelector as reduxUseSelector, 
-    TypedUseSelectorHook 
+    TypedUseSelectorHook, 
+    useDispatch
 } from 'react-redux';
 import { 
     makeStyles, 
     Typography 
 } from '@material-ui/core';
 
+/*Types*/
+import { ReduxState } from '../../types/Redux';
+
 /* Application files */
+import { setTasks } from '../../actions/tasks';
 import Task from '../Task';
 
 const useSelector = reduxUseSelector as TypedUseSelectorHook<ReduxState>;
@@ -33,13 +42,22 @@ export function TaskList() {
 
     const classes = useStyles();
 
+    const dispatch = useDispatch();
     const tasks = useSelector((state) => state.tasks);
 
-    const active = tasks.filter(task => !task.done);
-    const done = tasks.filter(task => task.done);
+    const active = useMemo(() => tasks.filter(task => !task.done), [ tasks ]);
+    const done = useMemo(() => tasks.filter(task => task.done), [ tasks ]);
 
-    const activeTasksList = active.reverse().map(task => <Task key={task.id} task={task} />);
-    const doneTasksList = done.reverse().map(task => <Task key={task.id} task={task} />);
+    const activeTasksList = active.map(task => <Task key={task.id} task={task} />);
+    const doneTasksList = done.map(task => <Task key={task.id} task={task} />);
+
+    function onActiveItemsReorder (e: Sortable.SortableEvent) {
+        const updated = [ ...tasks ];
+        const item = updated.splice(e.oldIndex, 1);
+        updated.splice(e.newIndex, 0, item[0]);
+
+        dispatch(setTasks(updated));
+    }
 
     return (
         <div>
@@ -49,7 +67,12 @@ export function TaskList() {
                 </p>
             </Typography>
             <div className={classes.list}>
-                {activeTasksList.length === 0 ? 'No active tasks' : activeTasksList}
+                {activeTasksList.length === 0 ? 'No active tasks' : (
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
+                    <ReactSortable list={active || []} setList={() => {}}  animation={150} onEnd={onActiveItemsReorder}>
+                        {activeTasksList}
+                    </ReactSortable>
+                )}
             </div>
             <Typography variant='h5'>
                 <p className={classes.listHeader}>

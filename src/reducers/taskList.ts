@@ -21,8 +21,12 @@ function getInitialState(): ReduxStateTasks {
 export default function tasks (state = getInitialState(), action: AnyAction) {
   
     switch (action.type) {
+        case 'SET_TASKS': {
+            localStorage.setItem('tasks', JSON.stringify(action.tasks));
+            return action.tasks;
+        }
         case 'ADD_TASK': {
-            const tasks = [ ...state, action.task ];
+            const tasks = [ action.task, ...state ];
             localStorage.setItem('tasks', JSON.stringify(tasks));
             return tasks;
         }

@@ -20,6 +20,10 @@ const initialState = workout ? JSON.parse(workout) as (WorkoutData[]) : save(Def
 export default function workoutCalender (state = initialState, action: AnyAction) {
   
     switch (action.type) {
+        case 'SET_WORKOUTS': {
+            localStorage.setItem('workouts', JSON.stringify(action.workouts));
+            return action.workouts;
+        }
         case 'EDIT_WORKOUT': {
             const workout = state.find(workout => workout.id === action.id);
             if(!workout) return state;
