@@ -53,7 +53,7 @@ export function Workout(props: Props) {
     const { text, id } = props.workout;
  
     const [ editing, setEditing ] = useState(false);
-    const workouts = useSelector((state) => state.workoutCalender);
+    const workouts = useSelector((state) => state.workoutCalendar);
     const editor = workouts.find((workout: { id: string }) => workout.id === id);
 
     function handleEditing() {

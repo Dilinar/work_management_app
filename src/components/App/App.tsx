@@ -21,7 +21,8 @@ import Timer from '../Timer';
 import Stoper from '../Stoper';
 import ErrorPage from '../ErrorPage';
 import HomePage from '../HomePage';
-import WorkoutCalender from '../WorkoutCalender';
+// import WorkoutCalendar from '../WorkoutCalendar';
+import AddWorkout from '../AddWorkout';
 import Button from '../Button';
 import Background from '../../assets/images/background.png';
 
@@ -183,7 +184,7 @@ export function App() {
                     <Switch>
                         <Route path='/' exact component={HomePage} />
                         <Route path='/todo' component={AddTask} />
-                        <Route path='/workout' component={WorkoutCalender} />
+                        <Route path='/workout' component={AddWorkout} />
                         <Route component={ErrorPage}  />
                     </Switch>
                 </section> 

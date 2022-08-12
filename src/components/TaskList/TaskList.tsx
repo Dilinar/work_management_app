@@ -21,8 +21,6 @@ import { ReduxState } from '../../types/Redux';
 import { setTasks } from '../../actions/tasks';
 import Task from '../Task';
 
-const useSelector = reduxUseSelector as TypedUseSelectorHook<ReduxState>;
-
 const useStyles = makeStyles(() => ({
     list: {
         display: 'flex',
@@ -37,6 +35,8 @@ const useStyles = makeStyles(() => ({
         borderBottom: '1px solid #ff5722',
     }
 }));
+
+const useSelector = reduxUseSelector as TypedUseSelectorHook<ReduxState>;
 
 export function TaskList() {
 

@@ -50,13 +50,13 @@ const useStyles = makeStyles(() => ({
 
 const useSelector = reduxUseSelector as TypedUseSelectorHook<ReduxState>;
 
-export function WorkoutCalender() {
+export function WorkoutCalendar() {
 
     const classes = useStyles();
 
     const dispatch = useDispatch();
-    const workout = useSelector((state) => state.workoutCalender);
-    const workoutList = workout.map(workout => <Workout key={workout.id} workout={workout} />);
+    const workout = useSelector((state) => state.workoutCalendar);
+    const workoutList = workout.map(workout => <Workout key={workout.id} workout={workout}/>);
     const today = new Date().getDay();
     
     const [ day, setDay ] = useState(today);
@@ -85,7 +85,7 @@ export function WorkoutCalender() {
 
         dispatch(setWorkouts(updated));
     }
-
+    console.log(workoutList);
     return (
         <div className={classes.root}>
             {show ? 
@@ -96,6 +96,12 @@ export function WorkoutCalender() {
                     Workout for today:
                 </Typography>
             }
+            <Button className={classes.button}
+                variant='outlined' 
+                color='primary'
+                onClick={handleShow}>
+                {show ? 'Hide workout calendar' : 'Show workout calendar'}
+            </Button>
             <div className={classes.list}>
                 {!show ? workoutList[day - 1] : (
                     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -104,15 +110,9 @@ export function WorkoutCalender() {
                     </ReactSortable>
                 ) }      
             </div>
-            <Button className={classes.button}
-                variant='outlined' 
-                color='primary'
-                onClick={handleShow}>
-                {show ? 'Hide workout calender' : 'Show workout calender'}
-            </Button>
         </div>
     );
         
 }
 
-export default WorkoutCalender;
+export default WorkoutCalendar;
