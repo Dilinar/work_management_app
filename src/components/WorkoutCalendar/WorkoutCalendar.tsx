@@ -22,7 +22,8 @@ import { ReduxState } from '../../types/Redux';
 
 /* Application files */
 import { setWorkouts } from '../../actions/workout';
-import Workout from '../Workout';
+import AddWorkout from '../AddWorkout';
+import WorkoutDay from '../WorkoutDay';
 import Button from '../Button';
 
 const useStyles = makeStyles(() => ({
@@ -34,6 +35,7 @@ const useStyles = makeStyles(() => ({
         paddingTop: '2rem',
         '& h3': {
             textAlign: 'center',
+            marginBottom: '2rem'
         },
     },
     list: {
@@ -56,7 +58,7 @@ export function WorkoutCalendar() {
 
     const dispatch = useDispatch();
     const workout = useSelector((state) => state.workoutCalendar);
-    const workoutList = workout.map(workout => <Workout key={workout.id} workout={workout}/>);
+    const workoutList = workout.map((workout, index) => <WorkoutDay key={workout.id} workout={workout} index={index}/> );
     const today = new Date().getDay();
     
     const [ day, setDay ] = useState(today);
@@ -85,14 +87,21 @@ export function WorkoutCalendar() {
 
         dispatch(setWorkouts(updated));
     }
-    console.log(workoutList);
+ 
     return (
         <div className={classes.root}>
+            <Typography variant='h3'>
+                Workout Calendar
+            </Typography>
+            {workoutList.length < 7 ?
+                <AddWorkout /> :
+                null
+            }
             {show ? 
-                <Typography variant='h3'>
+                <Typography variant='h4'>
                     Workout for the week:
                 </Typography> : 
-                <Typography variant='h3'>
+                <Typography variant='h4'>
                     Workout for today:
                 </Typography>
             }
@@ -102,17 +111,22 @@ export function WorkoutCalendar() {
                 onClick={handleShow}>
                 {show ? 'Hide workout calendar' : 'Show workout calendar'}
             </Button>
-            <div className={classes.list}>
-                {!show ? workoutList[day - 1] : (
-                    // eslint-disable-next-line @typescript-eslint/no-empty-function
-                    <ReactSortable list={workout} setList={() => {}} animation={150} onEnd={onActiveItemsReorder}>
+            <div>
+                {!show ? workoutList[day == 0 ? day + 6 : day - 1] : (
+                    <ReactSortable 
+                        className={classes.list}
+                        list={workout}
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function 
+                        setList={() => {}} 
+                        animation={150} 
+                        onEnd={onActiveItemsReorder}
+                    >
                         {workoutList}
                     </ReactSortable>
-                ) }      
+                )}      
             </div>
         </div>
-    );
-        
+    );      
 }
 
 export default WorkoutCalendar;

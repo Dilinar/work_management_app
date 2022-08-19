@@ -28,6 +28,7 @@ const useStyles = makeStyles(() => ({
             },
         },
         margin: '0.5rem',
+        backgroundColor: '#000000',
     },
 }));
 

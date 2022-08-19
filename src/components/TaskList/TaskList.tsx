@@ -66,10 +66,16 @@ export function TaskList() {
                     Active tasks
                 </p>
             </Typography>
-            <div className={classes.list}>
-                {activeTasksList.length === 0 ? 'No active tasks' : (
-                    // eslint-disable-next-line @typescript-eslint/no-empty-function
-                    <ReactSortable list={active || []} setList={() => {}}  animation={150} onEnd={onActiveItemsReorder}>
+            <div>
+                {activeTasksList.length === 0 ? 'No active tasks' : ( 
+                    <ReactSortable
+                        className={classes.list}
+                        list={active || []} 
+                        // eslint-disable-next-line @typescript-eslint/no-empty-function
+                        setList={() => {}}  
+                        animation={150} 
+                        onEnd={onActiveItemsReorder} 
+                    >
                         {activeTasksList}
                     </ReactSortable>
                 )}

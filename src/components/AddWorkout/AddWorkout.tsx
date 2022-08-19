@@ -2,13 +2,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { 
-    makeStyles, 
-    Typography 
+    makeStyles
 } from '@material-ui/core';
 
 /* Application files */
 import { addWorkout } from '../../actions/workout';
-import WorkoutCalendar from '../WorkoutCalendar';
 import TextField from '../TextField';
 import Button from '../Button';
 
@@ -54,9 +52,6 @@ export function AddWorkout () {
 
     return (
         <div className={classes.root}>
-            <Typography variant='h3'>
-                Workout Calendar
-            </Typography>
             <form onSubmit={handleSubmit}>
                 <TextField className={classes.textField}
                     id='outlined-basic' 
@@ -68,22 +63,13 @@ export function AddWorkout () {
                     onChange={handleText}
                     multiline
                 />
-                {!text ?
-                    <Button className={classes.button}
-                        disabled
-                        variant='outlined' 
-                        color='primary'>
-                        Add workout
-                    </Button> :
-                    <Button className={classes.button}
-                        variant='outlined' 
-                        color='primary'
-                        type='submit'>
-                        Add workout
-                    </Button>
-                }   
+                <Button className={classes.button}
+                    variant='outlined' 
+                    color='primary'
+                    type='submit'>
+                    Add workout
+                </Button> 
             </form>
-            <WorkoutCalendar />
         </div>
     );
 }
