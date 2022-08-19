@@ -16,6 +16,7 @@ import { WorkoutData } from '../../types/WorkoutData';
 /* Application files */
 import WorkoutEditor from '../WorkoutEditor';
 import Button from '../Button';
+import week from '../../lib/week.json';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -28,6 +29,7 @@ const useStyles = makeStyles(() => ({
         padding: '5px',
         borderRadius: '10px',
         margin: '0.3rem',
+        backgroundColor: '#000000',
     },
     dayHeader: {
         fontSize: '1.3rem',
@@ -43,16 +45,18 @@ const useSelector = reduxUseSelector as TypedUseSelectorHook<ReduxState>;
 
 type Props = {
     workout: WorkoutData;
+    index: number;
 }
 
-export function Workout(props: Props) {
+export function WorkoutDay(props: Props) {
 
     const classes = useStyles();
 
     const { text, id } = props.workout;
+    const index = props.index;
  
     const [ editing, setEditing ] = useState(false);
-    const workouts = useSelector((state) => state.workoutCalender);
+    const workouts = useSelector((state) => state.workoutCalendar);
     const editor = workouts.find((workout: { id: string }) => workout.id === id);
 
     function handleEditing() {
@@ -61,7 +65,7 @@ export function Workout(props: Props) {
 
     return (
         <li className={classes.root}>
-            <Typography variant='h4' className={classes.dayHeader}>{id}</Typography>
+            <Typography variant='h4' className={classes.dayHeader}>{week[index]}</Typography>
             {text === '' ? 
                 <Typography variant='body1'>No workout</Typography> : 
                 text.split('\n').map((item, key) => (
@@ -87,4 +91,4 @@ export function Workout(props: Props) {
 
 }
 
-export default Workout;
+export default WorkoutDay;

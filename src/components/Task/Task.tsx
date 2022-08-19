@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
         padding: '0.3rem',
         borderRadius: '10px',
         margin: '0.3rem',
+        backgroundColor: '#000000',
         '& p': {
             margin: '0.5rem 0',
         }

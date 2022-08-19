@@ -7,11 +7,13 @@ const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
     entry: './src/index.tsx',
-    mode: 'production',
+    mode: 'development',
     output: {
         path: path.resolve(__dirname, './docs'),
         filename: 'index.js',
+        /*Switch the following 2 lines to run the project localy*/
         publicPath: '/docs/'
+        // publicPath: '/'
     },
     resolve: {
         extensions: [ '.js', '.ts', '.tsx' ],
@@ -19,9 +21,11 @@ module.exports = {
     },
     devServer: {
         port: 8080,
+        /*Switch the following 2 lines to run the project localy*/
         historyApiFallback: {
             rewrites: [ { from: /\//, to: '/404.html' } ],
         },
+        // historyApiFallback: true
     },
     module: {
         rules: [

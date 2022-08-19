@@ -3,9 +3,9 @@ import { combineReducers } from 'redux';
 
 /* Application files */
 import tasks from './taskList';
-import workoutCalender from './workoutCalender';
+import workoutCalendar from './workoutCalendar';
 
 export default combineReducers({
     tasks,
-    workoutCalender
+    workoutCalendar
 });

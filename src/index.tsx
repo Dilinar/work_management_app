@@ -9,7 +9,7 @@ import { responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import { ReduxState } from './types/Redux';
 
 /* Application files */
-import App from './components/App/App';
+import App from './components/App';
 import theme from './lib/theme';
 import reducers from './reducers';
 

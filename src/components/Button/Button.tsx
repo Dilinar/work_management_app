@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
     button: {
         width: '80px',
         borderColor: 'rgba(255, 87, 34, 0.5)',
+        backgroundColor: '#000000',
         margin: '0.5rem 0.2rem'
     }
 }));

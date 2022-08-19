@@ -3,8 +3,8 @@ import { WorkoutData } from './WorkoutData';
 
 export type ReduxState = {
     tasks: ReduxStateTasks;
-    workoutCalender: ReduxStateWorkoutCalender;
+    workoutCalendar: ReduxStateWorkoutCalendar;
 }
 
 export type ReduxStateTasks = TaskData[];
-export type ReduxStateWorkoutCalender = WorkoutData[];
+export type ReduxStateWorkoutCalendar = WorkoutData[];
